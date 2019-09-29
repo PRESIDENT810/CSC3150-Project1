@@ -34,7 +34,7 @@ struct Node *first_node;
 
 int main(int argc, char *argv[]) {
 //    struct Node *first_node = calloc(100, sizeof(char));
-    first_node = calloc(100, sizeof(char));
+    first_node = calloc(600, sizeof(char));
     first_node->index = 0;
     strcpy(first_node->filename, "Null_node");
     struct Node *last_node = first_node;
@@ -43,9 +43,10 @@ int main(int argc, char *argv[]) {
     /* Implement the functions here */
     for (int i = 0; i < argc - 1; i++) {
 
-        struct Node *current_node = calloc(100, sizeof(char));
+        struct Node *current_node = calloc(600, sizeof(char));
         current_node->index = i + 1;
-        strcpy(current_node->filename, argv[3 - i]);
+        strcpy(current_node->filename, argv[argc -1 - i]);
+//        printf("file is called %s\n", argv[argc -1 - i]);
         last_node->nxt_node = current_node;
         last_node = current_node;
     }
@@ -58,10 +59,10 @@ int main(int argc, char *argv[]) {
 }
 
 void fork_node(struct Node *parent_node) {
-    struct Node *child_node = parent_node->nxt_node;
+    struct Node *child_node = calloc(200, sizeof(char));
+    child_node = parent_node->nxt_node;
     if (child_node == NULL){
         parent_node->my_pid = getpid();
-//        execute_file(parent_node);
         fork_same(parent_node);
         exit(0);
     }
@@ -151,12 +152,13 @@ void process_tree(struct Node *first_node){
 }
 
 void execute_file(struct Node *node) {
-    char *filename = calloc(200, sizeof(char));
+    char *filename = calloc(500, sizeof(char));
     strcpy(filename, node->filename);
-    char *current_path = calloc(200, sizeof(char));
-    strcpy(current_path,"/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
-//    strcpy(current_path,"/mnt/hgfs/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
+    char *current_path = calloc(500, sizeof(char));
+//    strcpy(current_path,"/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
+    strcpy(current_path,"/mnt/hgfs/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
     strcat(current_path, filename);
+//    printf("this shit is called %s\n", current_path);
     char *const *args = calloc(1, sizeof(char));
     execve(current_path, args, NULL);
 }

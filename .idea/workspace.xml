@@ -13,6 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="820177a3-1bdc-433a-baa9-e1e181e22b1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bonus/hangup" beforeDir="false" afterPath="$PROJECT_DIR$/bonus/hangup" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bonus/myfork.c" beforeDir="false" afterPath="$PROJECT_DIR$/bonus/myfork.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/source" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/source" afterDir="false" />
     </list>
@@ -33,15 +34,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bonus/myfork.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="614">
-              <caret line="122" column="21" selection-start-line="122" selection-start-column="21" selection-end-line="122" selection-end-column="21" />
+            <state relative-caret-position="-616">
+              <caret line="38" column="40" lean-forward="true" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
                 <element signature="e#191#308#1" />
-                <element signature="e#2376#2403#0" />
-                <element signature="e#2359#2881#0" />
-                <element signature="e#977#1208#0" />
-                <element signature="e#2969#6645#0" />
               </folding>
             </state>
           </provider>
@@ -167,7 +164,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="source" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="hangup normal8 trap" PASS_PARENT_ENVS_2="true" PROJECT_NAME="source" TARGET_NAME="source" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="source" RUN_TARGET_NAME="source">
+    <configuration name="source" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="hangup normal8 trap normal7 normal5" PASS_PARENT_ENVS_2="true" PROJECT_NAME="source" TARGET_NAME="source" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="source" RUN_TARGET_NAME="source">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -187,7 +184,7 @@
       <workItem from="1569725987374" duration="66000" />
       <workItem from="1569726064649" duration="816000" />
       <workItem from="1569726983306" duration="2201000" />
-      <workItem from="1569731768101" duration="21352000" />
+      <workItem from="1569731768101" duration="22506000" />
     </task>
     <task id="LOCAL-00001" summary="Workable in OS X if compile on OS X&#10;Not work for Ubuntu">
       <created>1569747828440</created>
@@ -210,11 +207,25 @@
       <option name="project" value="LOCAL" />
       <updated>1569754986236</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fuck 34141 shit&#10;fuck 34142 shit&#10;------------CHILD PROCESS START------------&#10;This is the SIGTRAP program&#10;&#10;fuck 34143 shit&#10;This is normal8 program&#10;fuck 34144 shit&#10;------------CHILD PROCESS START------------&#10;This is the SIGHUP program&#10;&#10;Process Tree:&#10;the process tree: 34141-&gt;34142-&gt;34143-&gt;34144">
+      <created>1569758500303</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1569758500303</updated>
+    </task>
+    <task id="LOCAL-00005" summary="I fucked this bitch so hard!">
+      <created>1569758601639</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1569758601639</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51165000" />
+    <option name="totallyTimeSpent" value="52319000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -227,6 +238,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19098713" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -234,13 +246,13 @@
       <window_info anchor="bottom" id="Messages" weight="0.32891566" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34698796" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6048193" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32891566" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.29759037" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32891566" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32891566" />
@@ -283,18 +295,11 @@
     <MESSAGE value="Workable in OS X if compile on OS X&#10;Not work for Ubuntu" />
     <MESSAGE value="Somehow got process tree right" />
     <MESSAGE value="------------CHILD PROCESS START------------&#10;This is the SIGHUP program&#10;&#10;This is normal8 program&#10;------------CHILD PROCESS START------------&#10;This is the SIGTRAP program&#10;&#10;Process Tree:&#10;the process tree: 32558-&gt;32558-&gt;32558-&gt;32558" />
-    <option name="LAST_COMMIT_MESSAGE" value="------------CHILD PROCESS START------------&#10;This is the SIGHUP program&#10;&#10;This is normal8 program&#10;------------CHILD PROCESS START------------&#10;This is the SIGTRAP program&#10;&#10;Process Tree:&#10;the process tree: 32558-&gt;32558-&gt;32558-&gt;32558" />
+    <MESSAGE value="fuck 34141 shit&#10;fuck 34142 shit&#10;------------CHILD PROCESS START------------&#10;This is the SIGTRAP program&#10;&#10;fuck 34143 shit&#10;This is normal8 program&#10;fuck 34144 shit&#10;------------CHILD PROCESS START------------&#10;This is the SIGHUP program&#10;&#10;Process Tree:&#10;the process tree: 34141-&gt;34142-&gt;34143-&gt;34144" />
+    <MESSAGE value="I fucked this bitch so hard!" />
+    <option name="LAST_COMMIT_MESSAGE" value="I fucked this bitch so hard!" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/bonus/myfork.c</url>
-          <line>61</line>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="getpid()" language="ObjectiveC" />
@@ -580,13 +585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bonus/trap.c">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -622,17 +620,20 @@
     <entry file="file://$PROJECT_DIR$/bonus/normal8.c">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bonus/myfork.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="122" column="21" selection-start-line="122" selection-start-column="21" selection-end-line="122" selection-end-column="21" />
+        <state relative-caret-position="-616">
+          <caret line="38" column="40" lean-forward="true" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#191#308#1" />
-            <element signature="e#2376#2403#0" />
-            <element signature="e#2359#2881#0" />
-            <element signature="e#977#1208#0" />
-            <element signature="e#2969#6645#0" />
           </folding>
         </state>
       </provider>
