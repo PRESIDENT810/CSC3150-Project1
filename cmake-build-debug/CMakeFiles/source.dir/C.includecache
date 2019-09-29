@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_1/source/bonus/myfork.c
+stdio.h
+-
+stdlib.h
+-
+sys/types.h
+-
+sys/wait.h
+-
+unistd.h
+-
+sys/stat.h
+-
+sys/mman.h
+-
+fcntl.h
+-
+string.h
+-
+
