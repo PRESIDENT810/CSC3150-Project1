@@ -45,23 +45,21 @@ int main(int argc, char *argv[]) {
 
         struct Node *current_node = calloc(100, sizeof(char));
         current_node->index = i + 1;
-        strcpy(current_node->filename, argv[i + 1]);
+        strcpy(current_node->filename, argv[3 - i]);
         last_node->nxt_node = current_node;
         last_node = current_node;
     }
 
     last_node->nxt_node = NULL;
-
-    first_node = first_node;
-    fork_node(first_node);
+    printf("fuck %d shit\n", getpid());
+    first_node->my_pid = getpid();
+    fork_node(first_node->nxt_node);
 
     return 0;
 }
 
 void fork_node(struct Node *parent_node) {
     struct Node *child_node = parent_node->nxt_node;
-    parent_node->my_pid = getpid();
-
     if (child_node == NULL){
         parent_node->my_pid = getpid();
 //        execute_file(parent_node);
@@ -78,15 +76,15 @@ void fork_node(struct Node *parent_node) {
         exit(1);
     } else {
         if (pid == 0) { // child process
-//            printf("my shit is %d\n", parent_node->my_pid);
             /* execute self */
             if (strcmp(parent_node->filename, "Null_node") != 0){
-//                printf("%s\n", parent_node->filename);
                 execute_file(parent_node);
             }
 //            exit(SIGCHLD);
         }
         else { // parent process
+            parent_node->my_pid = pid;
+            printf("fuck %d shit\n", pid);
             /* wait for child process terminates */
             waitpid(-1, &status, WUNTRACED);
             fork_node(child_node);
@@ -109,8 +107,6 @@ void fork_node(struct Node *parent_node) {
 }
 
 void fork_same(struct Node *last_node) {
-    last_node->my_pid = getpid();
-
     int status;
     pid_t pid;
     pid = fork();
@@ -124,6 +120,8 @@ void fork_same(struct Node *last_node) {
         }
 //            exit(SIGCHLD);
         else { // parent process
+            last_node->my_pid = pid;
+            printf("fuck %d shit\n", pid);
             /* wait for child process terminates */
             waitpid(-1, &status, WUNTRACED);
             process_tree(first_node);
