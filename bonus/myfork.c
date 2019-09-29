@@ -20,7 +20,7 @@ struct Node {
 
 struct StatusNode {
     int code;
-    struct status_node *StatusNode;
+    struct StatusNode *nxt_StatusNode;
 };
 
 void print_node(struct Node *first_node);
@@ -35,10 +35,22 @@ void status_info(int status);
 
 void process_tree(struct Node *first_node);
 
+void add_status(int status);
+
+void add_laststatus(int status);
+
+void print_status();
+
 struct Node *first_node;
-struct StatusNode *first_status;
+struct StatusNode *first_statusNode;
+struct StatusNode *current_statusNode;
 
 int main(int argc, char *argv[]) {
+    first_statusNode = calloc(200, sizeof(int));
+    current_statusNode = calloc(200, sizeof(int));
+    first_statusNode->code = -1;
+    current_statusNode = first_statusNode;
+
 //    struct Node *first_node = calloc(100, sizeof(char));
     first_node = calloc(600, sizeof(char));
     first_node->index = 0;
@@ -92,6 +104,8 @@ void fork_node(struct Node *parent_node) {
             parent_node->my_pid = pid;
             /* wait for child process terminates */
             waitpid(-1, &status, WUNTRACED);
+            printf("my shit is %d\n", status);
+            add_status(status);
             fork_node(child_node);
 
             /* check child process'  termination status */
@@ -128,7 +142,9 @@ void fork_same(struct Node *last_node) {
             last_node->my_pid = pid;
             /* wait for child process terminates */
             waitpid(-1, &status, WUNTRACED);
-            printf("Suck my dick U bitch %d\n", status);
+            printf("my shit is %d\n", status);
+            add_laststatus(status);
+            print_status();
             process_tree(first_node);
 
             /* check child process'  termination status */
@@ -261,4 +277,29 @@ void status_info(int status){
     else{
         printf("CHILD PROCESS CONTINUED\n");
     }
+}
+
+void add_status(int status){
+    struct StatusNode *nxt_statusNode = calloc(200, sizeof(int));
+    nxt_statusNode->code = status;
+    current_statusNode->nxt_StatusNode = nxt_statusNode;
+    current_statusNode = current_statusNode->nxt_StatusNode;
+}
+
+void add_laststatus(int status){
+    struct StatusNode *nxt_statusNode = calloc(200, sizeof(int));
+    nxt_statusNode->code = status;
+    nxt_statusNode->nxt_StatusNode = NULL;
+    current_statusNode->nxt_StatusNode = nxt_statusNode;
+    current_statusNode = current_statusNode->nxt_StatusNode;
+}
+
+void print_status(){
+    struct StatusNode *this_statusNode = calloc(200, sizeof(int));
+    this_statusNode = first_statusNode;
+    while (this_statusNode->nxt_StatusNode != NULL){
+        printf("My dick is like %d\n", this_statusNode->code);
+        this_statusNode = this_statusNode->nxt_StatusNode;
+    }
+    printf("My dick is like %d\n", this_statusNode->code);
 }
