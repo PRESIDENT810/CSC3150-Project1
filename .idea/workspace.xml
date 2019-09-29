@@ -13,7 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="820177a3-1bdc-433a-baa9-e1e181e22b1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bonus/hangup" beforeDir="false" afterPath="$PROJECT_DIR$/bonus/hangup" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bonus/myfork.c" beforeDir="false" afterPath="$PROJECT_DIR$/bonus/myfork.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/source" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/source" afterDir="false" />
     </list>
@@ -34,11 +33,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bonus/myfork.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-616">
-              <caret line="38" column="40" lean-forward="true" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+            <state relative-caret-position="90">
+              <caret line="162" column="5" lean-forward="true" selection-start-line="162" selection-start-column="5" selection-end-line="162" selection-end-column="5" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <element signature="e#191#308#1" />
+                <element signature="e#820#1756#0" />
+                <element signature="e#1346#2718#0" />
+                <element signature="e#2697#3679#0" />
+                <element signature="e#2376#2403#0" />
+                <element signature="e#2359#2881#0" />
+                <element signature="e#2969#6645#0" />
+                <element signature="e#8922#8960#0" />
+                <element signature="e#9273#9461#0" />
               </folding>
             </state>
           </provider>
@@ -81,6 +87,9 @@
       <find>printf</find>
       <find>shit</find>
       <find>execute_file</find>
+      <find>dick</find>
+      <find>termination</find>
+      <find>Normal termination with EXIT STATUS</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -164,7 +173,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="source" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="hangup normal8 trap normal7 normal5" PASS_PARENT_ENVS_2="true" PROJECT_NAME="source" TARGET_NAME="source" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="source" RUN_TARGET_NAME="source">
+    <configuration name="source" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="hangup normal8 trap" PASS_PARENT_ENVS_2="true" PROJECT_NAME="source" TARGET_NAME="source" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="source" RUN_TARGET_NAME="source">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -184,7 +193,7 @@
       <workItem from="1569725987374" duration="66000" />
       <workItem from="1569726064649" duration="816000" />
       <workItem from="1569726983306" duration="2201000" />
-      <workItem from="1569731768101" duration="22506000" />
+      <workItem from="1569731768101" duration="28213000" />
     </task>
     <task id="LOCAL-00001" summary="Workable in OS X if compile on OS X&#10;Not work for Ubuntu">
       <created>1569747828440</created>
@@ -221,11 +230,32 @@
       <option name="project" value="LOCAL" />
       <updated>1569758601639</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fuck linux!!! Fuck this shit motherfucker">
+      <created>1569759718120</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1569759718120</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fuck linux!!! Fuck this shit motherfucker">
+      <created>1569760282820</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1569760282820</updated>
+    </task>
+    <task id="LOCAL-00008" summary="I got dick!">
+      <created>1569761685357</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1569761685357</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52319000" />
+    <option name="totallyTimeSpent" value="58026000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -246,13 +276,13 @@
       <window_info anchor="bottom" id="Messages" weight="0.32891566" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6048193" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.7216867" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.29759037" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.29759037" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32891566" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32891566" />
@@ -297,18 +327,45 @@
     <MESSAGE value="------------CHILD PROCESS START------------&#10;This is the SIGHUP program&#10;&#10;This is normal8 program&#10;------------CHILD PROCESS START------------&#10;This is the SIGTRAP program&#10;&#10;Process Tree:&#10;the process tree: 32558-&gt;32558-&gt;32558-&gt;32558" />
     <MESSAGE value="fuck 34141 shit&#10;fuck 34142 shit&#10;------------CHILD PROCESS START------------&#10;This is the SIGTRAP program&#10;&#10;fuck 34143 shit&#10;This is normal8 program&#10;fuck 34144 shit&#10;------------CHILD PROCESS START------------&#10;This is the SIGHUP program&#10;&#10;Process Tree:&#10;the process tree: 34141-&gt;34142-&gt;34143-&gt;34144" />
     <MESSAGE value="I fucked this bitch so hard!" />
-    <option name="LAST_COMMIT_MESSAGE" value="I fucked this bitch so hard!" />
+    <MESSAGE value="Fuck linux!!! Fuck this shit motherfucker" />
+    <MESSAGE value="I got dick!" />
+    <option name="LAST_COMMIT_MESSAGE" value="I got dick!" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/bonus/myfork.c</url>
+          <line>293</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
-        <watch expression="getpid()" language="ObjectiveC" />
-        <watch expression="pid" language="ObjectiveC" />
+        <watch expression="first_statusNode" language="ObjectiveC" />
+        <watch expression="current_statusNode" language="ObjectiveC" />
+        <watch expression="this_statusNode-&gt;code" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>this_statusNode-&gt;code</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>current_statusNode</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>first_statusNode</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>pid</expression-string>
         <language-id>ObjectiveC</language-id>
@@ -322,7 +379,17 @@
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
+        <expression-string>first_statusNode</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>first_node</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>current_statusNode</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -353,16 +420,6 @@
       </expression>
       <expression>
         <expression-string>arg</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>argv[]</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>argv[2]</expression-string>
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -629,11 +686,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bonus/myfork.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-616">
-          <caret line="38" column="40" lean-forward="true" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+        <state relative-caret-position="90">
+          <caret line="162" column="5" lean-forward="true" selection-start-line="162" selection-start-column="5" selection-end-line="162" selection-end-column="5" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#191#308#1" />
+            <element signature="e#820#1756#0" />
+            <element signature="e#1346#2718#0" />
+            <element signature="e#2697#3679#0" />
+            <element signature="e#2376#2403#0" />
+            <element signature="e#2359#2881#0" />
+            <element signature="e#2969#6645#0" />
+            <element signature="e#8922#8960#0" />
+            <element signature="e#9273#9461#0" />
           </folding>
         </state>
       </provider>

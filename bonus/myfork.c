@@ -44,14 +44,15 @@ void print_status();
 struct Node *first_node;
 struct StatusNode *first_statusNode;
 struct StatusNode *current_statusNode;
+int arg_count;
 
 int main(int argc, char *argv[]) {
+    arg_count = argc;
     first_statusNode = calloc(200, sizeof(int));
     current_statusNode = calloc(200, sizeof(int));
     first_statusNode->code = -1;
     current_statusNode = first_statusNode;
 
-//    struct Node *first_node = calloc(100, sizeof(char));
     first_node = calloc(600, sizeof(char));
     first_node->index = 0;
     strcpy(first_node->filename, "Null_node");
@@ -64,7 +65,6 @@ int main(int argc, char *argv[]) {
         struct Node *current_node = calloc(600, sizeof(char));
         current_node->index = i + 1;
         strcpy(current_node->filename, argv[argc -1 - i]);
-//        printf("file is called %s\n", argv[argc -1 - i]);
         last_node->nxt_node = current_node;
         last_node = current_node;
     }
@@ -98,28 +98,13 @@ void fork_node(struct Node *parent_node) {
             if (strcmp(parent_node->filename, "Null_node") != 0){
                 execute_file(parent_node);
             }
-//            exit(SIGCHLD);
         }
         else { // parent process
             parent_node->my_pid = pid;
             /* wait for child process terminates */
             waitpid(-1, &status, WUNTRACED);
-            printf("my shit is %d\n", status);
             add_status(status);
             fork_node(child_node);
-
-            /* check child process'  termination status */
-//            if (WIFEXITED(status)) { // normal exit
-//                printf("Normal termination with EXIT STATUS = %d\n", WEXITSTATUS(status));
-//            }
-//            else if (WIFSIGNALED(status)) { // abnormal exit
-//                int num = WTERMSIG(status);
-//                status_info(num);
-//            }
-//            else {
-//                printf("CHILD PROCESS CONTINUED\n");
-//            }
-
         }
 
     }
@@ -137,36 +122,51 @@ void fork_same(struct Node *last_node) {
         if (pid == 0) { // child process
                 execute_file(last_node);
         }
-//            exit(SIGCHLD);
         else { // parent process
             last_node->my_pid = pid;
+
             /* wait for child process terminates */
             waitpid(-1, &status, WUNTRACED);
-            printf("my shit is %d\n", status);
             add_laststatus(status);
-            print_status();
             process_tree(first_node);
-
-            /* check child process'  termination status */
-            if (WIFEXITED(status)) { // normal exit
-                printf("Normal termination with EXIT STATUS = %d\n", WEXITSTATUS(status));
-            }
-            else if (WIFSIGNALED(status)) { // abnormal exit
-                int num = WTERMSIG(status);
-                status_info(num);
-            }
-            else {
-                printf("CHILD PROCESS CONTINUED\n");
-            }
-
+            print_status();
         }
 
     }
 }
 
-void process_tree(struct Node *first_node){
+void relation_info(int idx){
+    int i = idx;
+    int last_pid = -1;
+    struct Node *result_node = first_node;
+    struct StatusNode *result_statusNode = first_statusNode;
+    while (i != 0){
+        result_statusNode = result_statusNode->nxt_StatusNode;
+        i--;
+    }
+    i = idx;
+    while (arg_count-i != 0){
+        last_pid = result_node->my_pid;
+        result_node = result_node->nxt_node;
+        i++;
+    }
+    int parent_pid = last_pid;
+    int child_pid = result_node->my_pid;
+    int signal = result_statusNode->code;
+    if (signal != 0) {
+        printf("The child process (pid=%d) of parent process (pid=%d) is terminated by signal %d\n", child_pid, parent_pid, signal);
+        printf("The signal number = %d\n", signal);
+    }
+    else {
+        printf("The child process (pid=%d) of parent process (pid=%d) has normal execution %d\n", child_pid, parent_pid,
+               signal);
+    }
+
+}
+
+void process_tree(struct Node *First_node){
     printf("Process Tree:\nthe process tree: ");
-    struct Node *current_node = first_node;
+    struct Node *current_node = First_node;
     while (current_node->nxt_node != NULL){
         printf("%d->", current_node->my_pid);
         current_node = current_node->nxt_node;
@@ -186,17 +186,9 @@ void execute_file(struct Node *node) {
     execve(current_path, args, NULL);
 }
 
-void print_node(struct Node *first_node) {
-    struct Node *current_node = first_node;
-    while (current_node->nxt_node != NULL) {
-        printf("%s\n", current_node->filename);
-        current_node = current_node->nxt_node;
-    }
-}
-
 void status_info(int status){
     if(WIFEXITED(status)){ // normal exit
-        printf("Normal termination with EXIT STATUS = %d\n",WEXITSTATUS(status));
+        printf("Its exit status = 0\n");
     }
 
     else if(WIFSIGNALED(status)){ // abnormal exit
@@ -205,67 +197,57 @@ void status_info(int status){
             case 6: // SIGABRT
                 printf("child process get SIGABRT signal\n");
                 printf("child process is abort by abort signal\n");
-                printf("CHILD EXECUTION FAILED!!\n");
                 break;
             case 14: // SIGALRM
                 printf("child process get SIGALRM signal\n");
                 printf("child process is abort by alarm signal\n");
-                printf("CHILD EXECUTION FAILED!!\n");
                 break;
             case 7: // SIGBUS
                 printf("child process get SIGBUS signal\n");
                 printf("child process is abort by bus error signal\n");
-                printf("CHILD EXECUTION FAILED!!\n");
                 break;
             case 8: // SIGFPE
                 printf("child process get SIGFPE signal\n");
                 printf("child process is abort by floating error signal\n");
-                printf("CHILD EXECUTION FAILED!!\n");
                 break;
             case 1: // SIGHUP
                 printf("child process get SIGHUP signal\n");
-                printf("child process is abort by hung up signal\n");
-                printf("CHILD EXECUTION FAILED!!\n");
+                printf("child process is hung up\n");
                 break;
             case 4: // SIGILL
                 printf("child process get SIGILL signal\n");
                 printf("child process is abort by illegal signal\n");
-                printf("CHILD EXECUTION FAILED!!\n");
                 break;
             case 2: // SIGINT
                 printf("child process get SIGINT signal\n");
                 printf("child process is abort by keyboard interrupt signal\n");
-                printf("CHILD EXECUTION FAILED!!\n");
                 break;
             case 9: // SIGKILL
                 printf("child process get SIGKILL signal\n");
                 printf("child process is abort by kill signal\n");
-                printf("CHILD EXECUTION FAILED!!\n");
                 break;
             case 13: // SIGPIPE
                 printf("child process get SIGPIPE signal\n");
                 printf("child process is abort by broken pipe signal\n");
-                printf("CHILD EXECUTION FAILED!!\n");
                 break;
             case 3: // SIGQUIT
                 printf("child process get SIGQUIT signal\n");
                 printf("child process is abort by quit signal\n");
-                printf("CHILD EXECUTION FAILED!!\n");
                 break;
             case 11: // SIGSEGV
                 printf("child process get SIGSEGV signal\n");
                 printf("child process is abort by quit signal\n");
-                printf("CHILD EXECUTION FAILED!!\n");
                 break;
             case 15: // SIGTERM
                 printf("child process get SIGTERM signal\n");
                 printf("child process is abort by terminate signal\n");
-                printf("CHILD EXECUTION FAILED!!\n");
                 break;
             case 5: // SIGTRAP
                 printf("child process get SIGTRAP signal\n");
-                printf("child process is abort by trap signal\n");
-                printf("CHILD EXECUTION FAILED!!\n");
+                printf("child process reach a breakpoing\n");
+                break;
+            case 0: //
+                printf("Its exit status = 0\n");
                 break;
         }
 
@@ -277,6 +259,7 @@ void status_info(int status){
     else{
         printf("CHILD PROCESS CONTINUED\n");
     }
+    printf("\n");
 }
 
 void add_status(int status){
@@ -295,11 +278,21 @@ void add_laststatus(int status){
 }
 
 void print_status(){
+    int cnt = 1;
     struct StatusNode *this_statusNode = calloc(200, sizeof(int));
-    this_statusNode = first_statusNode;
+    this_statusNode = first_statusNode->nxt_StatusNode;
     while (this_statusNode->nxt_StatusNode != NULL){
-        printf("My dick is like %d\n", this_statusNode->code);
+//        printf("Fuck you bitch\n");
+        relation_info(cnt);
+        cnt++;
+        status_info(this_statusNode->code);
         this_statusNode = this_statusNode->nxt_StatusNode;
     }
-    printf("My dick is like %d\n", this_statusNode->code);
+
+    relation_info(cnt);
+//    relation_info(0);
+//    relation_info(1);
+//    relation_info(2);
+//    relation_info(3);
+    status_info(this_statusNode->code);
 }
