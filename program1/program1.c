@@ -31,7 +31,6 @@ int main(int argc, char *argv[]) {
             printf("I'm the child process, my pid = %d\n", getpid());
             printf("Child process start to execute test program:\n");
             // start execute the program
-            printf("arg[0]: %s\n", arg[1]);
             execve(arg[0], arg, NULL);
 
             printf("Continue to run original child process!\n");
