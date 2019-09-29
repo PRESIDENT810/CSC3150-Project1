@@ -18,6 +18,11 @@ struct Node {
     struct Node *nxt_node;
 };
 
+struct StatusNode {
+    int code;
+    struct status_node *StatusNode;
+};
+
 void print_node(struct Node *first_node);
 
 void execute_file(struct Node *node);
@@ -31,6 +36,7 @@ void status_info(int status);
 void process_tree(struct Node *first_node);
 
 struct Node *first_node;
+struct StatusNode *first_status;
 
 int main(int argc, char *argv[]) {
 //    struct Node *first_node = calloc(100, sizeof(char));
@@ -122,19 +128,20 @@ void fork_same(struct Node *last_node) {
             last_node->my_pid = pid;
             /* wait for child process terminates */
             waitpid(-1, &status, WUNTRACED);
+            printf("Suck my dick U bitch %d\n", status);
             process_tree(first_node);
 
             /* check child process'  termination status */
-//            if (WIFEXITED(status)) { // normal exit
-//                printf("Normal termination with EXIT STATUS = %d\n", WEXITSTATUS(status));
-//            }
-//            else if (WIFSIGNALED(status)) { // abnormal exit
-//                int num = WTERMSIG(status);
-//                status_info(num);
-//            }
-//            else {
-//                printf("CHILD PROCESS CONTINUED\n");
-//            }
+            if (WIFEXITED(status)) { // normal exit
+                printf("Normal termination with EXIT STATUS = %d\n", WEXITSTATUS(status));
+            }
+            else if (WIFSIGNALED(status)) { // abnormal exit
+                int num = WTERMSIG(status);
+                status_info(num);
+            }
+            else {
+                printf("CHILD PROCESS CONTINUED\n");
+            }
 
         }
 
@@ -155,8 +162,8 @@ void execute_file(struct Node *node) {
     char *filename = calloc(500, sizeof(char));
     strcpy(filename, node->filename);
     char *current_path = calloc(500, sizeof(char));
-//    strcpy(current_path,"/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
-    strcpy(current_path,"/mnt/hgfs/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
+    strcpy(current_path,"/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
+//    strcpy(current_path,"/mnt/hgfs/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
     strcat(current_path, filename);
 //    printf("this shit is called %s\n", current_path);
     char *const *args = calloc(1, sizeof(char));
