@@ -51,7 +51,6 @@ int main(int argc, char *argv[]) {
     }
 
     last_node->nxt_node = NULL;
-    printf("fuck %d shit\n", getpid());
     first_node->my_pid = getpid();
     fork_node(first_node->nxt_node);
 
@@ -84,7 +83,6 @@ void fork_node(struct Node *parent_node) {
         }
         else { // parent process
             parent_node->my_pid = pid;
-            printf("fuck %d shit\n", pid);
             /* wait for child process terminates */
             waitpid(-1, &status, WUNTRACED);
             fork_node(child_node);
@@ -121,7 +119,6 @@ void fork_same(struct Node *last_node) {
 //            exit(SIGCHLD);
         else { // parent process
             last_node->my_pid = pid;
-            printf("fuck %d shit\n", pid);
             /* wait for child process terminates */
             waitpid(-1, &status, WUNTRACED);
             process_tree(first_node);
