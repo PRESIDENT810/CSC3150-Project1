@@ -13,8 +13,12 @@
   <component name="ChangeListManager">
     <list default="true" id="820177a3-1bdc-433a-baa9-e1e181e22b1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bonus/hangup" beforeDir="false" afterPath="$PROJECT_DIR$/bonus/hangup" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bonus/myfork.c" beforeDir="false" afterPath="$PROJECT_DIR$/bonus/myfork.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/source" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/source" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/report.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp.docx" beforeDir="false" afterPath="$PROJECT_DIR$/temp.docx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/program1/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -33,48 +37,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bonus/myfork.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="162" column="5" lean-forward="true" selection-start-line="162" selection-start-column="5" selection-end-line="162" selection-end-column="5" />
+            <state relative-caret-position="433">
+              <caret line="182" column="35" selection-start-line="182" selection-start-column="35" selection-end-line="182" selection-end-column="35" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <element signature="e#820#1756#0" />
-                <element signature="e#1346#2718#0" />
-                <element signature="e#2697#3679#0" />
-                <element signature="e#2376#2403#0" />
-                <element signature="e#2359#2881#0" />
-                <element signature="e#2969#6645#0" />
-                <element signature="e#8922#8960#0" />
-                <element signature="e#9273#9461#0" />
+                <element signature="e#7978#8228#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bonus/hangup.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/program1/program1.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -90,6 +58,8 @@
       <find>dick</find>
       <find>termination</find>
       <find>Normal termination with EXIT STATUS</find>
+      <find>calloc</find>
+      <find>wait</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -104,12 +74,12 @@
         <option value="$PROJECT_DIR$/program2/run.sh" />
         <option value="$PROJECT_DIR$/program2/test.c" />
         <option value="$PROJECT_DIR$/Report.md" />
-        <option value="$PROJECT_DIR$/program2/program2.c" />
-        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/program1/program1.c" />
         <option value="$PROJECT_DIR$/bonus/status.c" />
         <option value="$PROJECT_DIR$/bonus/status.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/readme.md" />
+        <option value="$PROJECT_DIR$/program2/program2.c" />
         <option value="$PROJECT_DIR$/bonus/myfork.c" />
       </list>
     </option>
@@ -136,7 +106,7 @@
             <path>
               <item name="source" type="b2602c69:ProjectViewProjectNode" />
               <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="bonus" type="462c0819:PsiDirectoryNode" />
+              <item name="program2" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -193,7 +163,7 @@
       <workItem from="1569725987374" duration="66000" />
       <workItem from="1569726064649" duration="816000" />
       <workItem from="1569726983306" duration="2201000" />
-      <workItem from="1569731768101" duration="28213000" />
+      <workItem from="1569731768101" duration="31402000" />
     </task>
     <task id="LOCAL-00001" summary="Workable in OS X if compile on OS X&#10;Not work for Ubuntu">
       <created>1569747828440</created>
@@ -251,11 +221,18 @@
       <option name="project" value="LOCAL" />
       <updated>1569761685357</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="I'm the fuckin' genius!">
+      <created>1569765774227</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1569765774227</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58026000" />
+    <option name="totallyTimeSpent" value="61215000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -268,7 +245,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19098713" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -276,13 +252,13 @@
       <window_info anchor="bottom" id="Messages" weight="0.32891566" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.7216867" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.60240966" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.29759037" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.5325301" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32891566" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32891566" />
@@ -329,18 +305,10 @@
     <MESSAGE value="I fucked this bitch so hard!" />
     <MESSAGE value="Fuck linux!!! Fuck this shit motherfucker" />
     <MESSAGE value="I got dick!" />
-    <option name="LAST_COMMIT_MESSAGE" value="I got dick!" />
+    <MESSAGE value="I'm the fuckin' genius!" />
+    <option name="LAST_COMMIT_MESSAGE" value="I'm the fuckin' genius!" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/bonus/myfork.c</url>
-          <line>293</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="first_statusNode" language="ObjectiveC" />
@@ -599,18 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="172">
-            <caret line="209" selection-start-line="209" selection-end-line="209" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/unistd.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -632,13 +588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/program2/program2.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1106">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
         </state>
       </provider>
     </entry>
@@ -667,13 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/program1/program1.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bonus/normal8.c">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -684,20 +626,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/program1/program1.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-591">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/program2/program2.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1164">
+          <caret line="127" column="18" selection-start-line="127" selection-start-column="18" selection-end-line="127" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="159">
+            <caret line="217" selection-start-line="217" selection-end-line="217" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bonus/myfork.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="162" column="5" lean-forward="true" selection-start-line="162" selection-start-column="5" selection-end-line="162" selection-end-column="5" />
+        <state relative-caret-position="433">
+          <caret line="182" column="35" selection-start-line="182" selection-start-column="35" selection-end-line="182" selection-end-column="35" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#820#1756#0" />
-            <element signature="e#1346#2718#0" />
-            <element signature="e#2697#3679#0" />
-            <element signature="e#2376#2403#0" />
-            <element signature="e#2359#2881#0" />
-            <element signature="e#2969#6645#0" />
-            <element signature="e#8922#8960#0" />
-            <element signature="e#9273#9461#0" />
+            <element signature="e#7978#8228#0" />
           </folding>
         </state>
       </provider>

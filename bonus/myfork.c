@@ -41,6 +41,8 @@ void add_laststatus(int status);
 
 void print_status();
 
+int convert2signal(int exit_code);
+
 struct Node *first_node;
 struct StatusNode *first_statusNode;
 struct StatusNode *current_statusNode;
@@ -48,8 +50,8 @@ int arg_count;
 
 int main(int argc, char *argv[]) {
     arg_count = argc;
-    first_statusNode = calloc(200, sizeof(int));
-    current_statusNode = calloc(200, sizeof(int));
+    first_statusNode = calloc(600, sizeof(int));
+    current_statusNode = calloc(600, sizeof(int));
     first_statusNode->code = -1;
     current_statusNode = first_statusNode;
 
@@ -77,7 +79,7 @@ int main(int argc, char *argv[]) {
 }
 
 void fork_node(struct Node *parent_node) {
-    struct Node *child_node = calloc(200, sizeof(char));
+    struct Node *child_node = calloc(600, sizeof(char));
     child_node = parent_node->nxt_node;
     if (child_node == NULL){
         parent_node->my_pid = getpid();
@@ -152,7 +154,7 @@ void relation_info(int idx){
     }
     int parent_pid = last_pid;
     int child_pid = result_node->my_pid;
-    int signal = result_statusNode->code;
+    int signal = convert2signal(result_statusNode->code);
     if (signal != 0) {
         printf("The child process (pid=%d) of parent process (pid=%d) is terminated by signal %d\n", child_pid, parent_pid, signal);
         printf("The signal number = %d\n", signal);
@@ -175,14 +177,14 @@ void process_tree(struct Node *First_node){
 }
 
 void execute_file(struct Node *node) {
-    char *filename = calloc(500, sizeof(char));
+    char *filename = calloc(600, sizeof(char));
     strcpy(filename, node->filename);
-    char *current_path = calloc(500, sizeof(char));
-    strcpy(current_path,"/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
-//    strcpy(current_path,"/mnt/hgfs/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
+    char *current_path = calloc(600, sizeof(char));
+//    strcpy(current_path,"/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
+    strcpy(current_path,"/mnt/hgfs/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
     strcat(current_path, filename);
 //    printf("this shit is called %s\n", current_path);
-    char *const *args = calloc(1, sizeof(char));
+    char *const *args = calloc(600, sizeof(char));
     execve(current_path, args, NULL);
 }
 
@@ -263,14 +265,14 @@ void status_info(int status){
 }
 
 void add_status(int status){
-    struct StatusNode *nxt_statusNode = calloc(200, sizeof(int));
+    struct StatusNode *nxt_statusNode = calloc(600, sizeof(char));
     nxt_statusNode->code = status;
     current_statusNode->nxt_StatusNode = nxt_statusNode;
     current_statusNode = current_statusNode->nxt_StatusNode;
 }
 
 void add_laststatus(int status){
-    struct StatusNode *nxt_statusNode = calloc(200, sizeof(int));
+    struct StatusNode *nxt_statusNode = calloc(600, sizeof(char));
     nxt_statusNode->code = status;
     nxt_statusNode->nxt_StatusNode = NULL;
     current_statusNode->nxt_StatusNode = nxt_statusNode;
@@ -279,20 +281,52 @@ void add_laststatus(int status){
 
 void print_status(){
     int cnt = 1;
-    struct StatusNode *this_statusNode = calloc(200, sizeof(int));
+    struct StatusNode *this_statusNode = calloc(600, sizeof(char));
     this_statusNode = first_statusNode->nxt_StatusNode;
     while (this_statusNode->nxt_StatusNode != NULL){
 //        printf("Fuck you bitch\n");
         relation_info(cnt);
         cnt++;
-        status_info(this_statusNode->code);
+        status_info(convert2signal(this_statusNode->code));
         this_statusNode = this_statusNode->nxt_StatusNode;
     }
 
     relation_info(cnt);
-//    relation_info(0);
-//    relation_info(1);
-//    relation_info(2);
-//    relation_info(3);
     status_info(this_statusNode->code);
+}
+
+int convert2signal(int exit_code){
+    switch (exit_code) {
+        case 1:
+            return 1;
+        case 2:
+            return 2;
+        case 131:
+            return 3;
+        case 132:
+            return 4;
+        case 133:
+            return 5;
+        case 134:
+            return 6;
+        case 135:
+            return 7;
+        case 136:
+            return 8;
+        case 9:
+            return 9;
+        case 139:
+            return 11;
+        case 13:
+            return 13;
+        case 14:
+            return 14;
+        case 15:
+            return 15;
+        case 0:
+            return 0;
+        default:
+            printf("I am so fuckin' sorry I didn't prepare for this exit code\n");
+            return 0;
+    }
 }

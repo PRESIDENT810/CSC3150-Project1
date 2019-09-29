@@ -8,13 +8,18 @@ The tasks in part1 includes:
 2. Use wait() to let the parent process receives the SIGCHLD signal 
 3. Print out the termination information of child process (normal or abnormal)
 
-The tasks un part2 includes:
+The tasks in part2 includes:
 1. Create a kernel thread and run my_fork function
 2. Fork a process to execute test.o
 3. Use do_wait() to let the parent process wait for the child process
 4. Print out pid of both parent and child processes
 5. Catch the signal raised by the child process and print out related log
 6. Recompile the Linux kernel source code to use its functions
+
+The tasks in bonus includes:
+1. Execute the programs in arguments, as well as handle multiple input files
+2. Extend new process with the former argument as parent to run each input files
+3. Print out process tree and other relevant infomation
 
 ## Part2: Overall Project Structure
 <img src="./P1.png" width="250" hegiht="300" align=center />
@@ -209,12 +214,80 @@ The tasks un part2 includes:
 >       const char __user *const __user *__envp);
 >```
 
+#### Bonus
+```C
+struct Node {
+    int index;
+    char filename[200];
+    pid_t my_pid;
+    pid_t child_pid;
+    struct Node *nxt_node;
+};
+```
+A node which includes info about the binary file to be run
+
+```C
+struct StatusNode {
+    int code;
+    struct StatusNode *nxt_StatusNode;
+};
+```
+A linked list storing status info about each binary file
+
+```C
+void execute_file(struct Node *node);
+```
+Execute binary file with a Node as a parameter
+
+```C
+void fork_node(struct Node *parent_node);
+```
+Fork a new process using Node as its parameter
+
+```C
+void fork_same(struct Node *last_node);
+```
+Used for fork the process for the last binary file 
+(no new file needs to be handled so it is a seperate function)
+
+```C
+void status_info(int status);
+``` 
+Print out infomation about status of a binary file according to its exit code
+
+```C
+void process_tree(struct Node *first_node);
+```
+Print out the process tree
+
+```C
+void add_status(int status);
+void add_laststatus(int status);
+```
+Add status info to the status linked list
+
+```C
+void print_status();
+```
+Print out all process status info of all binary files
+
+```C
+int convert2signal(int exit_code);
+```
+Convert a exit code to the corresponding signal
+
 ## Part4: Program Environment
 Virtual machine application: VM Ware fusion 11
 
 The program is run on a Ubuntu 16.04 LTS operation system, with kernel version 4.10.14.
 
 Compiler: gcc version 5.4.0
+
+(Please change the program path in my codes before run them)
+If there is any problem, it might be the problem with different environment.
+Same happens to me when I run my code on my MacBook fine, but can only run after some
+modification on my Ubuntu virtual machine. If my code cannot run, please contact me
+and I can run my code on my laptop. 
 
 ## Part5: How to run my program
 #### Program1:
@@ -232,5 +305,11 @@ make
 insmod program2.ko
 rmmod program2.ko
 dmesg | tail -n 10
+```
+#### Bonus:
+```bash
+cd ./bonus
+make
+./my_fork hangup normal8 trap
 ```
 (You might need to export functions in linux kernel and recompile first)
