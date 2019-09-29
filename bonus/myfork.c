@@ -24,6 +24,8 @@ void execute_file(struct Node *node);
 
 void fork_node(struct Node *parent_node);
 
+void fork_same(struct Node *last_node);
+
 void status_info(int status);
 
 void process_tree(struct Node *first_node);
@@ -53,52 +55,8 @@ int main(int argc, char *argv[]) {
     first_node = first_node;
     fork_node(first_node);
 
-
-    /* Debug use */
-//    execute_file(first_node->nxt_node);
-//    print_node(first_node);
-//    process_tree(first_node);
     return 0;
 }
-
-void first_fork(struct Node *first_node) {
-    int status;
-    pid_t pid;
-    pid = fork();
-
-    if (pid == -1) {
-        perror("fork");
-        exit(1);
-    } else {
-        if (pid == 0) { // child process
-            fork_node(first_node->nxt_node);
-        }
-        else { // parent process
-            first_node->my_pid = getpid();
-            printf("first shit is %d\n", first_node->my_pid);
-
-            /* wait for child process terminates */
-            waitpid(-1, &status, WUNTRACED);
-
-            /* execute self */
-//            execute_file(parent_node);
-
-            /* check child process'  termination status */
-            if (WIFEXITED(status)) { // normal exit
-                printf("Normal termination with EXIT STATUS = %d\n", WEXITSTATUS(status));
-            }
-            else if (WIFSIGNALED(status)) { // abnormal exit
-                int num = WTERMSIG(status);
-                status_info(num);
-            }
-            else {
-                printf("CHILD PROCESS CONTINUED\n");
-            }
-        }
-
-    }
-}
-
 
 void fork_node(struct Node *parent_node) {
     struct Node *child_node = parent_node->nxt_node;
@@ -106,10 +64,9 @@ void fork_node(struct Node *parent_node) {
 
     if (child_node == NULL){
         parent_node->my_pid = getpid();
-        printf("the last shit is fucked %d\n", parent_node->my_pid);
 //        execute_file(parent_node);
-        process_tree(first_node);
-        return;
+        fork_same(parent_node);
+        exit(0);
     }
 
     int status;
@@ -121,21 +78,18 @@ void fork_node(struct Node *parent_node) {
         exit(1);
     } else {
         if (pid == 0) { // child process
-            /* execute test program */
-            printf("%s\n", child_node->filename);
-            fork_node(child_node);
+//            printf("my shit is %d\n", parent_node->my_pid);
+            /* execute self */
+            if (strcmp(parent_node->filename, "Null_node") != 0){
+//                printf("%s\n", parent_node->filename);
+                execute_file(parent_node);
+            }
 //            exit(SIGCHLD);
         }
         else { // parent process
-//            printf("pid: %d\n", getpid());
-            parent_node->my_pid = getpid();
-            printf("my shit is %d\n", parent_node->my_pid);
-
             /* wait for child process terminates */
             waitpid(-1, &status, WUNTRACED);
-
-            /* execute self */
-//            execute_file(parent_node);
+            fork_node(child_node);
 
             /* check child process'  termination status */
 //            if (WIFEXITED(status)) { // normal exit
@@ -148,19 +102,57 @@ void fork_node(struct Node *parent_node) {
 //            else {
 //                printf("CHILD PROCESS CONTINUED\n");
 //            }
+
+        }
+
+    }
+}
+
+void fork_same(struct Node *last_node) {
+    last_node->my_pid = getpid();
+
+    int status;
+    pid_t pid;
+    pid = fork();
+
+    if (pid == -1) {
+        perror("fork");
+        exit(1);
+    } else {
+        if (pid == 0) { // child process
+                execute_file(last_node);
+        }
+//            exit(SIGCHLD);
+        else { // parent process
+            /* wait for child process terminates */
+            waitpid(-1, &status, WUNTRACED);
+            process_tree(first_node);
+
+            /* check child process'  termination status */
+//            if (WIFEXITED(status)) { // normal exit
+//                printf("Normal termination with EXIT STATUS = %d\n", WEXITSTATUS(status));
+//            }
+//            else if (WIFSIGNALED(status)) { // abnormal exit
+//                int num = WTERMSIG(status);
+//                status_info(num);
+//            }
+//            else {
+//                printf("CHILD PROCESS CONTINUED\n");
+//            }
+
         }
 
     }
 }
 
 void process_tree(struct Node *first_node){
-    printf("the process tree: ");
+    printf("Process Tree:\nthe process tree: ");
     struct Node *current_node = first_node;
     while (current_node->nxt_node != NULL){
         printf("%d->", current_node->my_pid);
         current_node = current_node->nxt_node;
     }
-    printf("%d\n", current_node->my_pid);
+    printf("%d\n\n", current_node->my_pid);
 }
 
 void execute_file(struct Node *node) {
@@ -170,11 +162,8 @@ void execute_file(struct Node *node) {
     strcpy(current_path,"/Users/zhongkaining/OneDrive/College/2019-Term 1/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
 //    strcpy(current_path,"/mnt/hgfs/CSC3150/Project/CSC3150_Assignment_1/source/bonus/");
     strcat(current_path, filename);
-//    printf("%s\n", current_path);
     char *const *args = calloc(1, sizeof(char));
     execve(current_path, args, NULL);
-    printf("execute file: %s", filename);
-    perror("fuck this shit");
 }
 
 void print_node(struct Node *first_node) {
